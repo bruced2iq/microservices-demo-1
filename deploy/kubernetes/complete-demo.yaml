@@ -10,7 +10,7 @@ metadata:
   name: carts
   labels:
     name: carts
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -63,7 +63,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: carts
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   ports:
     # the port that this service should serve on
@@ -78,7 +78,7 @@ metadata:
   name: carts-db
   labels:
     name: carts-db
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -120,7 +120,7 @@ metadata:
   name: carts-db
   labels:
     name: carts-db
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   ports:
     # the port that this service should serve on
@@ -135,7 +135,7 @@ metadata:
   name: catalogue
   labels:
     name: catalogue
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -193,7 +193,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: catalogue
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   ports:
     # the port that this service should serve on
@@ -208,7 +208,7 @@ metadata:
   name: catalogue-db
   labels:
     name: catalogue-db
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -239,7 +239,7 @@ metadata:
   name: catalogue-db
   labels:
     name: catalogue-db
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   ports:
     # the port that this service should serve on
@@ -252,7 +252,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: front-end
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -308,12 +308,13 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: front-end
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 80
     targetPort: 8079
+    nodePort: 30001
   selector:
     name: front-end
 ---
@@ -323,7 +324,7 @@ metadata:
   name: orders
   labels:
     name: orders
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -376,7 +377,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: orders
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   ports:
     # the port that this service should serve on
@@ -391,7 +392,7 @@ metadata:
   name: orders-db
   labels:
     name: orders-db
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -433,7 +434,7 @@ metadata:
   name: orders-db
   labels:
     name: orders-db
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   ports:
     # the port that this service should serve on
@@ -448,7 +449,7 @@ metadata:
   name: payment
   labels:
     name: payment
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -503,7 +504,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: payment
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   ports:
     # the port that this service should serve on
@@ -518,7 +519,7 @@ metadata:
   name: queue-master
   labels:
     name: queue-master
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -555,7 +556,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: queue-master
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   ports:
     # the port that this service should serve on
@@ -570,7 +571,7 @@ metadata:
   name: rabbitmq
   labels:
     name: rabbitmq
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -618,7 +619,7 @@ metadata:
         prometheus.io/port: '9090'
   labels:
     name: rabbitmq
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   ports:
     # the port that this service should serve on
@@ -638,7 +639,7 @@ metadata:
   name: session-db
   labels:
     name: session-db
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -675,7 +676,7 @@ metadata:
   name: session-db
   labels:
     name: session-db
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   ports:
     # the port that this service should serve on
@@ -690,7 +691,7 @@ metadata:
   name: shipping
   labels:
     name: shipping
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -745,7 +746,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: shipping
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   ports:
     # the port that this service should serve on
@@ -761,7 +762,7 @@ metadata:
   name: user
   labels:
     name: user
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -819,7 +820,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: user
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   ports:
     # the port that this service should serve on
@@ -835,7 +836,7 @@ metadata:
   name: user-db
   labels:
     name: user-db
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   replicas: 1
   selector:
@@ -878,7 +879,7 @@ metadata:
   name: user-db
   labels:
     name: user-db
-  namespace: socks-retail
+  #namespace: socks-retail
 spec:
   ports:
     # the port that this service should serve on
